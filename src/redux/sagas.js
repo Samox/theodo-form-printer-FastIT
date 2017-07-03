@@ -58,7 +58,7 @@ function* fetchLatestForms(action) {
     const response = yield call(gapi.client.script.scripts.run, {
       'scriptId': SCRIPT_ID,
       'resource': {
-        'function': 'getLastResponsesUrl'
+        'function': 'getLastResponsesUrlFastIT'
       }
     });
     if (response.result.error) {
