@@ -5,6 +5,7 @@ const initialState = {
   loading: false,
   error: false,
   forms: [],
+  questions: [],
   isClientLoaded: false,
   errorMessage: '',
 }
@@ -58,7 +59,8 @@ export default function reducer(state = initialState, action = {}) {
       return {
         ...state,
         loading: false,
-        forms: action.forms,
+        forms: action.payload.responses,
+        questions: action.payload.questions,
         error: false,
       };
     case types.LOGIN.FAILURE:

@@ -38,7 +38,7 @@ class App extends PureComponent {
           <Loader inverted>Loading</Loader>
         </Dimmer>
         <Header as="h2" className="no-print">The latest project forms</Header>
-        <ListForms forms={ this.props.forms } />
+        <ListForms forms={ this.props.forms } questions={ this.props.questions } />
       </Container>
     </Container>;
   }
@@ -49,16 +49,18 @@ App.propTypes = {
   errorMessage: PropTypes.string.isRequired,
   isClientLoaded: PropTypes.bool.isRequired,
   forms: PropTypes.array.isRequired,
+  questions: PropTypes.array.isRequired,
   loggedIn: PropTypes.bool.isRequired,
   loading: PropTypes.bool.isRequired,
   fetchFormsRequest: PropTypes.func.isRequired,
 }
 
-const mapStateToProps = ({ loggedIn, loading, forms, isClientLoaded, error, errorMessage }) => ({
+const mapStateToProps = ({ loggedIn, loading, forms, questions, isClientLoaded, error, errorMessage }) => ({
   error,
   errorMessage,
   isClientLoaded,
   forms,
+  questions,
   loggedIn,
   loading,
 });
