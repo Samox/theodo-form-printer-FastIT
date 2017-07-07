@@ -5,11 +5,17 @@ import ProjectForm from './ProjectForm';
 
 class ListForms extends PureComponent {
   render() {
-    const panels = this.props.forms.map(form =>{
+    const yesOfCourse = this.props.questions.reduce((yes ,question) => {
+      if (question.questionSlug === 'recommendation') {
+        yes = question.answers[0]
+      }
+      return yes
+    }, 'croute')
 
+    const panels = this.props.forms.map(form =>{
       let label;
 
-      if (parseInt(form.speed[0]) + parseInt(form.colaboration[0]) >= 8 && form.recommendation === 'Oui bien sûr') {
+      if (parseInt(form.speed[0]) + parseInt(form.colaboration[0]) >= 8 && form.recommendation === yesOfCourse) {
         if (parseInt(form.speed[0]) + parseInt(form.colaboration[0]) == 10){
           label = <Label color="green" className="pinned">WOW!</Label>;
         } else {
@@ -22,7 +28,7 @@ class ListForms extends PureComponent {
 
       return {
         title: <span>{`${form.project} - Sprint ${form.sprint}`} {label}</span>,
-        content: <ProjectForm form={ form } />,
+        content: <ProjectForm form={ form } questions={ this.props.questions } />,
         key: `${form.project} - Sprint ${form.sprint}`,
       }
     });
@@ -37,6 +43,7 @@ class ListForms extends PureComponent {
 
 ListForms.propTypes = {
   forms: PropTypes.array.isRequired,
+  questions: PropTypes.array.isRequired,
 }
 
 export default ListForms;

@@ -63,6 +63,7 @@ class ProjectForm extends PureComponent {
 
 ProjectForm.propTypes = {
   form: PropTypes.object.isRequired,
+  questions: PropTypes.array.isRequired,
 }
 
 export default ProjectForm;

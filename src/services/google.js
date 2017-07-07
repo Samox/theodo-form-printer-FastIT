@@ -1,10 +1,9 @@
 const gapi = window.gapi
 
-export const CLIENT_ID = '390849018080-n6hvq5jg9hkl67l2fsi4ldeljs57o34r.apps.googleusercontent.com';
+export const CLIENT_ID = '1064483391468-34odtv7dj3tidc5mfbtkitf89bapl184.apps.googleusercontent.com';
 export const DISCOVERY_DOCS = ["https://script.googleapis.com/$discovery/rest?version=v1"];
 export const SCOPES = 'https://www.googleapis.com/auth/forms';
-export const SCRIPT_ID_UK = 'MeRye5A_wHzCuyYvIJ85WNJ6eS0vCcuvm';
-export const SCRIPT_ID = 'Mo36SB4NMSPPn9MLWxomXTQW4mt_V9Ca2';
+export const SCRIPT_ID = 'MUR7LYGtI9263SIUdj6IzcAW4mt_V9Ca2';
 
 gapi.loadAsync = () => new Promise(
   (resolve, reject) => {
